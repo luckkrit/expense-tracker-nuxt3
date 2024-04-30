@@ -1,5 +1,5 @@
 import { db } from './'
-import { ExpensesUpdate, Expenses, NewExpenses } from './types'
+import type { ExpensesUpdate, Expenses, NewExpenses } from './types'
 
 
 export async function findExpenseById(id: number) {

@@ -1,6 +1,9 @@
 <template>
-    <div>
-
+    <div class="flex items-center justify-between p-5 border-b shadow-sm">
+        <div>
+        </div>
+        <!-- <AuthButton data={data} /> -->
+        <AuthButton />
     </div>
 </template>
 

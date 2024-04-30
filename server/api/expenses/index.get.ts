@@ -1,4 +1,4 @@
-import * as BudgetRepository from '../../database/BudgetRepository'
+import * as ExpenseRepository from '../../../database/ExpenseRepository'
 import z from 'zod'
 export default defineEventHandler(async (event) => {
     try {
@@ -9,9 +9,9 @@ export default defineEventHandler(async (event) => {
             email: z.string().email(),
         })
         emailSchema.parse({ email })
-        const budgets = await BudgetRepository.findBudgetByCreatedBy({ createdBy: email })
+        const expenses = await ExpenseRepository.findExpense({ createdBy: email })
         return {
-            data: budgets.rows
+            data: expenses
         }
     } catch (e) {
         throw createError({
@@ -20,4 +20,3 @@ export default defineEventHandler(async (event) => {
         })
     }
 })
-

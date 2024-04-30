@@ -1,7 +1,7 @@
 <template>
     <div>
         Expense {{ $route.params.id }}
-        <form method="post" action="/api/budgets" @submit.prevent="onSubmit">
+        <form @submit.prevent="onSubmit">
             <input type="hidden" name="name" value="test" />
             <input type="hidden" name="amount" value="1000" />
             <input type="hidden" name="icon" value="icon" />

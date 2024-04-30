@@ -1,5 +1,5 @@
-import { Budgets, NewBudgets } from '~/database/types';
-import * as BudgetRepository from '../../database/BudgetRepository'
+import { NewBudgets } from '~/database/types';
+import * as BudgetRepository from '../../database/BudgetRepository';
 
 export default defineEventHandler(async (event) => {
     try {
@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
             });
         }
         const name = String(formData.get('name'))
-        const amount = String(formData.get('amount'))
+        const amount = String(formData.get('amount') || 0)
         const icon = String(formData.get('icon'))
         const budgets: NewBudgets = { name, amount, icon, createdBy: 'luckkrit@gmail.com' }
         await BudgetRepository.createBudget(budgets)

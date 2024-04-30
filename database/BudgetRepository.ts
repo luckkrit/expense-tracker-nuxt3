@@ -1,5 +1,5 @@
 import { db } from './'
-import { BudgetsUpdate, Budgets, NewBudgets } from './types'
+import type { BudgetsUpdate, Budgets, NewBudgets } from './types'
 import { sql } from 'kysely'
 
 export async function findBudgetById(id: number) {

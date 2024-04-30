@@ -1,11 +1,15 @@
 <template>
-    <LandingHero />
+    <div>
+        Upgrade
+    </div>
 </template>
 
 <script setup lang="ts">
+
 definePageMeta({
-    middleware: ['auth']
+    layout: 'dashboard'
 })
+
 </script>
 
 <style scoped></style>
