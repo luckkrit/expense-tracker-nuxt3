@@ -21,7 +21,8 @@ const onSubmit = async (e: any) => {
     console.log(results.data)
 }
 definePageMeta({
-    layout: 'dashboard'
+    layout: 'dashboard',
+    middleware: ['auth']
 })
 </script>
 

@@ -24,6 +24,7 @@
 import type { Budgets, Expenses } from '~/database/types';
 definePageMeta({
     layout: 'dashboard',
+    middleware: ['auth']
 })
 const user = useCookie<{ name: string, email: string }>('user')
 const { data: budgetAndExpense } = await useLazyAsyncData('budget-expense', async () => {
@@ -43,7 +44,6 @@ const expenses = computed(() => expensesRef.value)
 
 watch(budgetAndExpense, (data) => {
     if (data !== null) {
-        console.log(data)
         budgetsRef.value = data.budgets
         expensesRef.value = data.expenses
     }
