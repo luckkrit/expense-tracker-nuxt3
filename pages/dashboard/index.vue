@@ -33,7 +33,6 @@ const { data: budgetAndExpense } = await useLazyAsyncData('budget-expense', asyn
         $fetch<{ data: Budgets[] }>('/api/budgets', { headers: useRequestHeaders(["cookie"]) as any }),
         $fetch<{ data: Expenses[] }>('/api/expenses', { headers: useRequestHeaders(["cookie"]) as any })
     ])
-
     return { budgets, expenses }
 }, { transform: (_budgetAndExpense) => ({ budgets: _budgetAndExpense.budgets.data, expenses: _budgetAndExpense.expenses.data }) })
 
@@ -42,12 +41,12 @@ const expensesRef = ref<Expenses[]>([])
 const budgets = computed(() => budgetsRef.value)
 const expenses = computed(() => expensesRef.value)
 
-watch(budgetAndExpense, (data) => {
-    if (data !== null) {
-        budgetsRef.value = data.budgets
-        expensesRef.value = data.expenses
+watch(() => budgetAndExpense.value, (newBudgetAndExpenses, _) => {
+    if(newBudgetAndExpenses!==null){
+        budgetsRef.value = newBudgetAndExpenses.budgets
+        expensesRef.value = newBudgetAndExpenses.expenses
     }
-}, { deep: true })
+}, {deep: true});
 
 const refresh = () => {
     refreshNuxtData('budget-expense');

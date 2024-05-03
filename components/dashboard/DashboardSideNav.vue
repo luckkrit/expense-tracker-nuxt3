@@ -3,14 +3,15 @@
         <div>
             <img src="../../assets/images/logo.svg" width="71" height="55" alt="logo" class="mx-auto" />
             <div class="mt-5">
-                <RouterLink :to="menu.path"
+                <NuxtLink :to="menu.path"
                     class="flex items-center gap-2 p-5 font-medium text-gray-500 border border-transparent cursor-pointer hover:border hover:rounded-md hover:text-blue-700 hover:bg-blue-100"
                     activeClass="border rounded-md text-blue-700 bg-blue-100"
-                    exactActiveClass="border rounded-md text-blue-700 bg-blue-100" v-for="menu in menuList"
+                    exactActiveClass="border rounded-md text-blue-700 bg-blue-100" 
+                    v-for="menu in menuList"
                     :key="menu.id">
                     <component :is="menu.icon" />
                     {{ menu.name }}
-                </RouterLink>
+                </NuxtLink>
             </div>
         </div>
         <div class="flex justify-center w-full mb-5">
