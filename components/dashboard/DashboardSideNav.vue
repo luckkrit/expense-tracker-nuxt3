@@ -5,8 +5,9 @@
             <div class="mt-5">
                 <NuxtLink :to="menu.path"
                     class="flex items-center gap-2 p-5 font-medium text-gray-500 border border-transparent cursor-pointer hover:border hover:rounded-md hover:text-blue-700 hover:bg-blue-100"
-                    activeClass="border rounded-md text-blue-700 bg-blue-100"
-                    exactActiveClass="border rounded-md text-blue-700 bg-blue-100" 
+                    activeClass="active"
+                    exactActiveClass="active" 
+                    :class="{active: $route.path.includes(menu.path) && !menu.end}"
                     v-for="menu in menuList"
                     :key="menu.id">
                     <component :is="menu.icon" />
@@ -60,4 +61,8 @@ const menuList: MenuItem[] = [
 ]
 </script>
 
-<style scoped></style>
+<style scoped>
+.active {
+@apply border rounded-md text-blue-700 bg-blue-100
+}
+</style>

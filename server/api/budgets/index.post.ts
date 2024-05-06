@@ -1,5 +1,5 @@
 import { NewBudgets } from '~/database/types';
-import * as BudgetRepository from '../../database/BudgetRepository';
+import * as BudgetRepository from '../../../database/BudgetRepository';
 
 export default defineEventHandler(async (event) => {
     try {
